@@ -3,7 +3,6 @@ import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 
 import { Monster } from "../types";
-import Modal from "./Modal";
 
 const Main = () => {
   const [monsters, setMonsters] = useState<Monster[]>([]);
@@ -27,7 +26,6 @@ const Main = () => {
         handleChange={setSearchField}
       />
       <CardList filteredMonsters={filteredMonsters} />
-      <Modal />
     </div>
   );
 };
