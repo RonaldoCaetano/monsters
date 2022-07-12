@@ -2,6 +2,10 @@ export interface Monster {
   id: string
   name: string
   email: string
+  address?: {
+    city: string;
+    street: string;
+  }
 }
 
 export interface SearchBoxProps {

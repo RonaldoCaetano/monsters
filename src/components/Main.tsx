@@ -1,22 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 
-import { Monster } from "../types";
+import { MonstersContext } from "../context/MonstersContext";
+import Modal from "./Modal";
 
 const Main = () => {
-  const [monsters, setMonsters] = useState<Monster[]>([]);
+  const { monsters, showModal } = useContext(MonstersContext);
   const [searchField, setSearchField] = useState<string>("");
 
   const filteredMonsters = monsters.filter((monster) =>
     monster.name.toLowerCase().includes(searchField.toLowerCase())
   );
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => setMonsters(users));
-  }, []);
 
   return (
     <div className="App">
@@ -26,6 +21,10 @@ const Main = () => {
         handleChange={setSearchField}
       />
       <CardList filteredMonsters={filteredMonsters} />
+
+      {showModal && (
+        <Modal />
+      )}
     </div>
   );
 };

@@ -1,23 +1,39 @@
-.card-container {
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.card-modal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #95dada;
+  justify-content: center;
+  background-color: #fff;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 25px;
   cursor: pointer;
-  -moz-osx-font-smoothing: grayscale;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  transition: transform 0.25s ease-out;
+
+  position: absolute;
+  left: 50%;
+  right: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
 }
 
-.card-container h2,
-.card-container p {
+.card-modal h2,
+.card-modal p {
   text-align: center;
 }
 
-.card-container:hover {
-  transform: scale(1.05);
+.card-modal button {
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
